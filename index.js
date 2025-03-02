@@ -358,31 +358,31 @@ function getAverageGrade(student, course) {
     }
   }
 
-  return -1; // Course not found in transcript
+  return -1; 
 }
 
 //console.log(getAverageGrade(bob, 'INFO 1603'));
 
 function getAssignmentMark(student, course, num) {
   if (!student || !student.transcript) {
-    return -1; // Handle missing student or transcript
+    return -1; 
   }
 
   for (const entry of student.transcript) {
     if (entry.course === course) {
       if (!entry.grades || entry.grades.length === 0) {
-        return -1; // Course exists but no grades (or no assignments)
+        return -1; 
       }
 
-      if (num >= 1 && num <= entry.grades.length) { //check for valid assignment number
-        return entry.grades[num - 1]; // Array indices are 0-based
+      if (num >= 1 && num <= entry.grades.length) { 
+        return entry.grades[num - 1];
       } else {
-        return -1; // Invalid assignment number
+        return -1; 
       }
     }
   }
 
-  return -1; // Course not found
+  return -1; 
 }
 
 console.log(getAssignmentMark(paul, 'INFO 1600', 2));
@@ -413,4 +413,4 @@ function averageAssessment(students, courseName, assignment) {
 }
 
 
-console.log(averageAssessment(students, 'INFO1601', 1));
+console.log(averageAssessment(students, 'INFO 1600', 2));
